@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Web.master.cs" Inherits="AttendenceRecordingApplication.Web" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="../Style/Web.css" type="text/css" rel="stylesheet" / >
+    <title>
+        <asp:ContentPlaceHolder ID="titleContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <asp:ContentPlaceHolder ID="headContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+    <form id="form1" runat="server">
+   
+    <header>
+		<nav>
+		<ul>
+			<li><a href="../Login/Home.aspx">Home</a></li>
+            <li class="dropdown"><a class="dropbtn">Add</a>
+				<div class="dropdown-content">
+					<a href="../AddForms/Teacher.aspx">Teacher</a>
+					<a href="../AddForms/Student.aspx">Student</a>
+                    <a href="../AddForms/Course.aspx">Course</a>
+                    <a href="../AddForms/Module.aspx">Module</a>
+                    <a href="../AddForms/Class.aspx">Class</a>
+				</div>
+			</li>
+			<li class="dropdown"><a class="dropbtn">Assign</a>
+				<div class="dropdown-content">
+					<a href="../AssignForms/TeacherModule.aspx">Teacher-Module</a>
+                    <a href="../AssignForms/StudentCourse.aspx">Student-Course</a>
+                    <a href="../AssignForms/StudentClass.aspx">Student-Class</a>
+				</div>
+			</li>
+            <li class="dropdown"><a class="dropbtn">Report</a>
+				<div class="dropdown-content">
+					<a href="../ReportForms/AttendanceReport.aspx">Attendance-Report</a>
+                    <a href="../ReportForms/EnrolledStudents.aspx">Enrolled-Students</a>
+                    <a href="../ReportForms/TeacherModule.aspx">Teacher-Module</a>
+				</div>
+			</li>
+			<li><a href="../Attendance/Attendance.aspx">Attendance</a></li>
+            <li class="log"><a><asp:Button ID="logBtn" runat="server" Text="Log Out" OnClick="LogOut_Click"/></a></li>
+		</ul>
+		</nav>
+	</header>
+	<hr />
+    <div>
+		<p>
+			<span id="greetings"></span>
+			<span id="date"></span>
+		</p>
+	</div>
+        <div class="formContent">
+            <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="tableContent">
+            <asp:ContentPlaceHolder ID="tableContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <hr />
+    <footer>
+        <p>&copy; <%: DateTime.Now.Year %>- Academic Institute</p>
+    </footer>
+    <script src="../Script/dateGreet.js"></script>
+</body>
+</html>
